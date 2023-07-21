@@ -22,10 +22,17 @@ const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const bannerImg = document.querySelector(".banner-img");
 const tagLine = document.querySelector("#banner p");
-const dots = document.querySelectorAll(".dot");
+const dotContainer = document.querySelector(".dots")
 
 let currentSlide = 0;
 
+for (let i=0 ; i<slides.length ; i++){
+	const dot = document.createElement("span");
+	dot.classList.add("dot")
+	dotContainer.appendChild(dot)
+}
+
+const dots = document.querySelectorAll(".dot");
 function showSlide(index) {
   if (index < 0 || index >= slides.length) {
     return;
@@ -57,6 +64,8 @@ arrowRight.addEventListener("click", function () {
     showSlide(nextSlide);
   }
 });
+
+
 
 dots.forEach((dot, index) => {
   dot.addEventListener("click", function () {
